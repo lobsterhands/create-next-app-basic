@@ -34,3 +34,14 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+## Next Config
+
+To fix a development issue I had with Fast Refresh breaking after I made 2+ changes to HTML or styles, I've edited the default `nextConfig` object to include:
+```
+  distDir: process.env.NODE_ENV === "development"
+    ? ".next/dev"
+    : ".next/build",
+```
+
+I discovered this fix(?) in [this GitHub issue](https://github.com/vercel/next.js/issues/61228). Now I can save and Fast Refresh as often as I want without needing to restart the dev server.
