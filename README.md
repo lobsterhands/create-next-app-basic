@@ -44,4 +44,6 @@ To fix a development issue I had with Fast Refresh breaking after I made 2+ chan
     : ".next/build",
 ```
 
-I discovered this fix(?) in [this GitHub issue](https://github.com/vercel/next.js/issues/61228). Now I can save and Fast Refresh as often as I want without needing to restart the dev server.
+I discovered this fix(?) in [this GitHub issue](https://github.com/vercel/next.js/issues/61228). Now I can save and Fast Refresh as often as I want without needing to restart the dev server. However, this change breaks default build directory expectations on Vercel.
+
+**NOTE: If deploying on Vercel, you must override the Output Directory to be `.next/build`** (or whatever output directory you set in your `next.config` file).
